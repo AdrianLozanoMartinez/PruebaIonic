@@ -1,0 +1,19 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>
+      Pendientes
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ 
+  <ion-list>
+
+    <ion-item *ngFor="let variable_local_lista of variable_servicio.variable_lista" detail>
+      <ion-label>{{ variable_local_lista.titulo }}</ion-label>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
