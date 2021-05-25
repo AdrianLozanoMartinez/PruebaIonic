@@ -1,0 +1,38 @@
+<ion-list color="success">
+
+  <ion-item-sliding *ngFor="let variable_listaLocal of variable_servicio.variable_listas | filtro:terminada_html_ts">   
+
+    <!-- filtro -> 
+        terminada_html_ts -> Cogido del ts para que haga referencia y lo transforme según dicho boolean -->
+
+    
+    <ion-item  detail 
+               color="success"
+               (click)="listaSeleccionada (variable_listaLocal)">
+      <ion-label>{{ variable_listaLocal.titulo }}</ion-label>
+  
+      <ion-note slot="end" color="primary">{{ variable_listaLocal.items.length }} items</ion-note>
+    </ion-item>
+
+
+    <!--Botón sliding-->
+    <ion-item-options side="start">   <!--Derecha-->
+      <ion-item-option (click)="editarLista(variable_listaLocal)" color="primary">
+        <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+
+
+
+    <!--Botón sliding-->
+  <ion-item-options side="end">   <!--Derecha-->
+    <ion-item-option (click)="borrarLista(variable_listaLocal)" color="danger">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-item-option>
+  </ion-item-options>
+
+
+
+  </ion-item-sliding>
+
+</ion-list>

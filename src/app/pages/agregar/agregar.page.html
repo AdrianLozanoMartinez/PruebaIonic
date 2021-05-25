@@ -1,0 +1,63 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="success">
+
+    <ion-buttons slot="start">
+        <ion-back-button color="dark" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+
+<ion-title>{{ variableDeAgregarLISTA.titulo }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="success">
+
+<ion-list color="success">
+  <ion-item color="success">
+    <ion-label position="floating">Nuevo item</ion-label>
+    <ion-input type="text" [(ngModel)]="Variable_nombreItem" (keyup.enter)="agregarItem()"></ion-input>
+  </ion-item>
+</ion-list>
+
+
+
+
+<ion-list>
+
+  <ion-list-header color="success"
+                   *ngIf="variableDeAgregarLISTA.items.length > 0">
+                   <!-- Para que no se vea si no hay nada introducido -->
+    <ion-label>Tareas por hacer</ion-label>
+  </ion-list-header>
+
+
+
+
+<ion-item-sliding *ngFor="let variable_local_item of variableDeAgregarLISTA.items; let variable_local_index = index"
+class="animated fadeInDown">   <!--Componente sliding, envolvemos la parte que queremos que haga el efecto-->
+
+
+  <ion-item color="success">
+    <ion-checkbox slot="start"
+                  color="success"
+                  [(ngModel)]="variable_local_item.completado"
+                  (ionChange)="cambioCheck(variable_local_item)"></ion-checkbox>
+                  <!-- Se dispara cuando algo cambia, y por eso llama a la funcion -->
+    <ion-label>{{ variable_local_item.descripcion }}</ion-label>
+  </ion-item>
+
+<!--Botón sliding-->
+  <ion-item-options side="end">   <!--Derecha-->
+    <ion-item-option (click)="borrar(variable_local_index)" color="danger">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-item-option>
+  </ion-item-options>
+
+
+</ion-item-sliding>   <!--Parte final de sliding-->
+
+
+
+</ion-list>
+
+  
+</ion-content>

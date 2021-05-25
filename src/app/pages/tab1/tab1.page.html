@@ -1,19 +1,36 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar>
+  <ion-toolbar color="success">
     <ion-title>
       Pendientes
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" color="success">
  
-  <ion-list>
+  <!-- <ion-list color="success">
 
-    <ion-item *ngFor="let variable_local_lista of variable_servicio.variable_lista" detail>
-      <ion-label>{{ variable_local_lista.titulo }}</ion-label>
+    <ion-item *ngFor="let variable_listaLocal of variable_servicio.variable_listas" 
+               detail 
+               color="success"
+               (click)="listaSeleccionada (variable_listaLocal)">
+      <ion-label>{{ variable_listaLocal.titulo }}</ion-label>
+
+      <ion-note slot="end" color="primary">{{ variable_listaLocal.items.length }} items</ion-note>
     </ion-item>
 
-  </ion-list>
+  </ion-list> -->
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="tertiary" (click)="agregarLista()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+
+  <app-nombre-componente [terminada_html_ts]="false"></app-nombre-componente>
+
+
+
 
 </ion-content>
